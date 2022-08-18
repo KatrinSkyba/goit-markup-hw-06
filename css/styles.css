@@ -433,10 +433,10 @@ address {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-} */
+}
 
 .modal {
   position: absolute;
@@ -466,6 +466,7 @@ address {
   justify-content: center;
   align-items: center;
 }
+
 .modal-title {
   font-weight: 700;
   font-size: 20px;
@@ -477,10 +478,11 @@ address {
 
 .form-field {
   display: flex;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   flex-direction: column;
 }
 .form-label {
+  display: block;
   margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
@@ -494,10 +496,14 @@ address {
   width: 100%;
   height: 40px;
   padding-left: 42px;
+  font-style: inherit;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  font: inherit;
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.form-input:hover,
 .form-input:focus {
   border: 1px solid var(--accent-color);
 }
@@ -507,6 +513,15 @@ address {
   left: 15px;
   transform: translateY(-50%);
 }
+.icons {
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.icons:hover,
+.icons:focus {
+  fill: var(--accent-color);
+}
 .form-feedback {
   width: 100%;
   height: 120px;
@@ -514,10 +529,45 @@ address {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
+  margin-bottom: 20px;
+}
+.form-feedback::placeholder {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
+}
+
+.form-check {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--secondary-text-color);
+  margin-left: 37px;
+  margin-bottom: 30px;
+}
+
+.form-mailimg-features {
+  color: var(--accent-color);
+}
+.form-square-icon {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  transform: translate(-25px, 4px);
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--main-text-color);
+}
+.check-input:checked ~ .form-square-icon {
+  background-image: url(../images/icon\ check.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--accent-color);
+  background-origin: border-box;
+  border: 2px solid var(--accent-color);
 }
 .form-submit-btn {
   font-family: inherit;
@@ -551,6 +601,7 @@ address {
 }
 .footer-adress {
   margin-right: 70px;
+  flex-grow: 2;
 }
 .footer-logo {
   display: block;
@@ -639,10 +690,23 @@ address {
 .form-email {
   padding: 11px;
   width: 358px;
-  background-color: var(--footer-color);
+  background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.form-email:hover,
+.form-email:focus {
+  border-color: var(--accent-color);
+}
+.form-email::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .submit-button {
@@ -660,6 +724,16 @@ address {
   line-height: 1.88;
   letter-spacing: 0.06em;
   background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.submit-button:hover,
+.submit-button:hover {
+  transform: scale(1.02);
 }
 .send-icon {
   color: var(--background-color);
