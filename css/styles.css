@@ -443,8 +443,8 @@ address {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 528px;
-  min-height: 581px;
+  width: 528px;
+  height: 581px;
   padding: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -466,6 +466,13 @@ address {
   justify-content: center;
   align-items: center;
 }
+.modal-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  fill: var(--accent-color);
+}
 
 .modal-title {
   font-weight: 700;
@@ -477,10 +484,14 @@ address {
 }
 
 .form-field {
+  position: relative;
   display: flex;
-  margin-bottom: 10px;
   flex-direction: column;
+  text-align: start;
+  margin-bottom: 10px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .form-label {
   display: block;
   margin-bottom: 4px;
@@ -489,9 +500,11 @@ address {
   letter-spacing: 0.01em;
   color: var(--secondary-text-color);
 }
-.modal-input-icon {
+
+.input-wrap {
   position: relative;
 }
+
 .form-input {
   width: 100%;
   height: 40px;
@@ -499,28 +512,36 @@ address {
   font-style: inherit;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  transition-property: border;
+  transition-property: border, outline-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-input:hover,
-.form-input:focus {
-  border: 1px solid var(--accent-color);
-}
 .form-icon {
   position: absolute;
+  left: 12px;
   top: 50%;
-  left: 15px;
   transform: translateY(-50%);
-}
-.icons {
   transition-property: fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.icons:hover,
-.icons:focus {
+
+.form-field:hover .form-input {
+  border: 1px solid var(--accent-color);
+}
+.form-field:focus-within .form-input {
+  outline-color: var(--accent-color);
+}
+
+.form-field:focus-within .form-icon,
+.form-field:hover .form-icon {
   fill: var(--accent-color);
+}
+.form-field-last {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-bottom: 20px;
 }
 .form-feedback {
   width: 100%;
@@ -529,7 +550,9 @@ address {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
-  margin-bottom: 20px;
+  transition-property: outline-color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-feedback::placeholder {
   font-size: 12px;
@@ -537,14 +560,21 @@ address {
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
 }
+.form-field-last:focus-within .form-feedback {
+  outline-color: var(--accent-color);
+}
+.form-field-last:hover .form-feedback {
+  border: 1px solid var(--accent-color);
+}
 
 .form-check {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
   font-size: 14px;
   line-height: 1.71;
   color: var(--secondary-text-color);
-  margin-left: 37px;
+  /* margin-left: 37px; */
   margin-bottom: 30px;
 }
 
@@ -555,7 +585,7 @@ address {
   position: absolute;
   display: block;
   top: 0;
-  left: 0;
+  left: 32px;
   transform: translate(-25px, 4px);
   width: 16px;
   height: 15px;
@@ -601,7 +631,6 @@ address {
 }
 .footer-adress {
   margin-right: 70px;
-  flex-grow: 2;
 }
 .footer-logo {
   display: block;
@@ -675,7 +704,7 @@ address {
 
 /****************************** ПІДПИСКА **************************************/
 .sign-up {
-  margin-left: 93px;
+  margin-left: auto;
 }
 .form-title {
   font-weight: 700;
@@ -693,12 +722,14 @@ address {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   transition-property: border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
+
 .form-email:hover,
 .form-email:focus {
   border-color: var(--accent-color);
