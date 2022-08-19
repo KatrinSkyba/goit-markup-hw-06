@@ -515,6 +515,7 @@ address {
   transition-property: border, outline-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 .form-icon {
   position: absolute;
@@ -526,11 +527,9 @@ address {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.form-field:focus-within .form-input,
 .form-field:hover .form-input {
   border: 1px solid var(--accent-color);
-}
-.form-field:focus-within .form-input {
-  outline-color: var(--accent-color);
 }
 
 .form-field:focus-within .form-icon,
@@ -553,6 +552,7 @@ address {
   transition-property: outline-color, border;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 .form-feedback::placeholder {
   font-size: 12px;
@@ -560,9 +560,8 @@ address {
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
 }
-.form-field-last:focus-within .form-feedback {
-  outline-color: var(--accent-color);
-}
+
+.form-field-last:focus-within .form-feedback,
 .form-field-last:hover .form-feedback {
   border: 1px solid var(--accent-color);
 }
