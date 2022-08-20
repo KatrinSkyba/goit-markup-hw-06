@@ -573,16 +573,17 @@ address {
   font-size: 14px;
   line-height: 1.71;
   color: var(--secondary-text-color);
-  /* margin-left: 37px; */
   margin-bottom: 30px;
 }
 
 .form-mailimg-features {
   color: var(--accent-color);
+  outline-color: var(--accent-color);
 }
+
 .form-square-icon {
   position: absolute;
-  display: block;
+  display: flex;
   top: 0;
   left: 32px;
   transform: translate(-25px, 4px);
@@ -590,12 +591,15 @@ address {
   height: 15px;
   border: 2px solid var(--main-text-color);
 }
+
 .check-input:checked ~ .form-square-icon {
-  background-image: url(../images/icon\ check.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--accent-color);
   background-origin: border-box;
+  border: 2px solid var(--accent-color);
+}
+.form-check:focus-within .form-square-icon {
   border: 2px solid var(--accent-color);
 }
 .form-submit-btn {
